@@ -109,7 +109,7 @@ return [
     */
 
     'resource' => [
-        'stylesheets' => [],
+        'stylesheets' => ['css/style.css', 'css/reset.css', 'css/grid.css'],
         'scripts'     => [],
     ],
 
