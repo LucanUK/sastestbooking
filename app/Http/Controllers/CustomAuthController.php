@@ -26,11 +26,11 @@ class CustomAuthController extends Controller
    
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('dashboard')
+            return redirect()->intended('bookingportal')
                         ->withSuccess('Signed in');
         }
   
-        return redirect("login")->withSuccess('Login details are not valid');
+        return redirect("booking")->withSuccess('Login details are not valid');
     }
 
 
@@ -83,6 +83,6 @@ class CustomAuthController extends Controller
         Session::flush();
         Auth::logout();
   
-        return Redirect('login');
+        return Redirect('booking');
     }
 }
