@@ -26,20 +26,43 @@ class PlatformProvider extends OrchidServiceProvider
     public function registerMainMenu(): array
     {
         return [
-            Menu::make('Example screen')
+            
+
+            Menu::make('Booking Manager')
+                ->icon('calendar')
+                ->route('platform.main.bookingmanager')
+                ->divider()
+                ->permission('platform.main.bookingmanager'),
+
+            Menu::make('Access Management')
+                ->icon('lock')
+                ->list([
+                Menu::make(__('Users'))
+                    ->icon('user')
+                    ->route('platform.systems.users')
+                    ->permission('platform.systems.users'),
+                Menu::make(__('Roles'))
+                    ->icon('lock')
+                    ->route('platform.systems.roles')
+                    ->permission('platform.systems.roles'),
+                    ])
+                ->divider()
+                ->permission('platform.systems.access'),
+                
+            Menu::make('Examples')
+                ->icon('code')
+                ->title('Examples Section')
+                ->list([
+                    Menu::make('Example screen')
                 ->icon('monitor')
                 ->route('platform.example')
-                ->title('Navigation')
+                
                 ->badge(function () {
                     return 6;
                 }),
-
-            Menu::make('Dropdown menu')
-                ->icon('code')
-                ->list([
                     Menu::make('Sub element item 1')->icon('bag'),
                     Menu::make('Sub element item 2')->icon('heart'),
-                ]),
+                
 
             Menu::make('Basic Elements')
                 ->title('Form controls')
@@ -67,30 +90,9 @@ class PlatformProvider extends OrchidServiceProvider
                 ->icon('grid')
                 ->route('platform.example.cards')
                 ->divider(),
-
-            Menu::make('Documentation')
-                ->title('Docs')
-                ->icon('docs')
-                ->url('https://orchid.software/en/docs'),
-
-            Menu::make('Changelog')
-                ->icon('shuffle')
-                ->url('https://github.com/orchidsoftware/platform/blob/master/CHANGELOG.md')
-                ->target('_blank')
-                ->badge(function () {
-                    return Dashboard::version();
-                }, Color::DARK()),
-
-            Menu::make(__('Users'))
-                ->icon('user')
-                ->route('platform.systems.users')
-                ->permission('platform.systems.users')
-                ->title(__('Access rights')),
-
-            Menu::make(__('Roles'))
-                ->icon('lock')
-                ->route('platform.systems.roles')
-                ->permission('platform.systems.roles'),
+                
+            ])
+            ->permission('platform.main.examples'),
         ];
     }
 
@@ -114,7 +116,14 @@ class PlatformProvider extends OrchidServiceProvider
         return [
             ItemPermission::group(__('System'))
                 ->addPermission('platform.systems.roles', __('Roles'))
-                ->addPermission('platform.systems.users', __('Users')),
+                ->addPermission('platform.systems.users', __('Users'))
+                ->addPermission('platform.systems.access', __('Access Management')),
+            ItemPermission::group(__('Main'))
+                ->addPermission('platform.main.examples', __('Examples')),
+            ItemPermission::group(__('Manager'))
+                ->addPermission('platform.main.bookingmanager', __('Booking Manager'))
+
+                
         ];
     }
 

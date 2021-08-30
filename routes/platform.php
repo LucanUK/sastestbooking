@@ -15,6 +15,7 @@ use App\Orchid\Screens\Role\RoleListScreen;
 use App\Orchid\Screens\User\UserEditScreen;
 use App\Orchid\Screens\User\UserListScreen;
 use App\Orchid\Screens\User\UserProfileScreen;
+use App\Orchid\Screens\Booking\BookingManagerScreen;
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
 
@@ -89,6 +90,15 @@ Route::screen('roles', RoleListScreen::class)
         return $trail
             ->parent('platform.index')
             ->push(__('Roles'), route('platform.systems.roles'));
+    });
+
+// Platform > Main > Booking Manager
+Route::screen('bookingmanager', BookingManagerScreen::class)
+    ->name('platform.main.bookingmanager')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.index')
+            ->push(__('Booking Manager'), route('platform.main.bookingmanager'));
     });
 
 // Example...
