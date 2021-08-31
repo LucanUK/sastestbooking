@@ -31,8 +31,12 @@ class PlatformProvider extends OrchidServiceProvider
             Menu::make('Booking Manager')
                 ->icon('calendar')
                 ->route('platform.main.bookingmanager')
-                ->divider()
                 ->permission('platform.main.bookingmanager'),
+            Menu::make('DVLA Vehicle Lookup')
+                ->icon('magnifier')
+                ->route('platform.main.vehiclelookup')
+                ->divider()
+                ->permission('platform.main.vehiclelookup'),
 
             Menu::make('Access Management')
                 ->icon('lock')
@@ -122,6 +126,7 @@ class PlatformProvider extends OrchidServiceProvider
                 ->addPermission('platform.main.examples', __('Examples')),
             ItemPermission::group(__('Manager'))
                 ->addPermission('platform.main.bookingmanager', __('Booking Manager'))
+                ->addPermission('platform.main.vehiclelookup', __('Vehicle Lookup'))
 
                 
         ];

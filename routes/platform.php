@@ -16,6 +16,7 @@ use App\Orchid\Screens\User\UserEditScreen;
 use App\Orchid\Screens\User\UserListScreen;
 use App\Orchid\Screens\User\UserProfileScreen;
 use App\Orchid\Screens\Booking\BookingManagerScreen;
+use App\Orchid\Screens\Booking\VehicleLookupScreen;
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
 
@@ -100,7 +101,22 @@ Route::screen('bookingmanager', BookingManagerScreen::class)
             ->parent('platform.index')
             ->push(__('Booking Manager'), route('platform.main.bookingmanager'));
     });
-
+// Platform > Main > Vehicle Lookup
+Route::screen('vehiclelookup', VehicleLookupScreen::class)
+    ->name('platform.main.vehiclelookup')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.index')
+            ->push(__('Vehicle Lookup'), route('platform.main.vehiclelookup'));
+    });
+    // Platform > Main > Vehicle Lookup
+Route::screen('vehiclelookup/{vehicles}', VehicleLookupScreen::class)
+->name('platform.main.vehiclelookup.show')
+->breadcrumbs(function (Trail $trail, $vehicles) {
+    return $trail
+        ->parent('platform.main.vehiclelookup')
+        ->push(__('Vehicle Details'), route('platform.main.vehiclelookup.show', $vehicles));
+});
 // Example...
 Route::screen('example', ExampleScreen::class)
     ->name('platform.example')
