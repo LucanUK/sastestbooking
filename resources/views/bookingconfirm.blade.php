@@ -12,7 +12,7 @@ Booking Confirm
                         <div class="extra-wrap">
                           <h4>Confirm Your Booking Details </h4>
                       </div>
-                      <form method="POST" action="{{ route('vehicle.apicheck') }}">
+                      <form method="POST" action="{{ route('bookingdone') }}">
                         @csrf
                         <div class="form-group mb-3">
                             <h6>Booking Info</h6>
@@ -28,7 +28,7 @@ Booking Confirm
                             <label for="make">Email </label>
                             <input type="text" placeholder="{{ $userdata['Email'] }}" id="Email" name="Email" class="form-control"  disabled
                                             autofocus><br>
-                        
+                            
                         </div>
 
                         <div class="form-group mb-3">
@@ -58,6 +58,16 @@ Booking Confirm
                             <label for="make">MOT Expiry </label>
                             <input type="text" placeholder="{{ $vehicledata->motExpiryDate }}" id="motExpiryDate" name="motExpiryDate" class="form-control"  disabled
                                                 autofocus><br>
+                        </div>
+                        <div class="d-grid mx-auto">
+                            <button type="submit" class="button">Confirm</button>
+                        </div>
+                    </form>
+                <form method="GET" action="{{ route('booking') }}">
+                        @csrf
+
+                        <div class="d-grid mx-auto">
+                            <button type="submit" class="button">Back</button>
                         </div>
                     </form>
 @endsection
