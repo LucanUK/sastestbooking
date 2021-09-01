@@ -88,12 +88,15 @@ class BookingManagerScreen extends Screen
     Layout::rows([
 
         Group::make([
-            DateTimer::make('pickday')
+            DateTimer::make('appointment.pickday')
                 ->title('Pick Day')
                 ->required()
                 ->allowInput()
                 ->format('d-m-Y')
                 ->enableTime(false),
+            Button::make(__('Select'))
+                ->icon('event')
+                ->method('BookingNotify'),
 
         ]),
 

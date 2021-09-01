@@ -61,7 +61,7 @@ class CustomAuthController extends Controller
       return User::create([
         'name' => $data['name'],
         'email' => $data['email'],
-        'password' => Hash::make($data['password'])
+        'password' => hash::make($data['password'])
       ]);
     }    
     
@@ -80,7 +80,7 @@ class CustomAuthController extends Controller
     }
 
     public function signOut() {
-        Session::flush();
+        Session()->flush();
         Auth::logout();
   
         return Redirect('booking');

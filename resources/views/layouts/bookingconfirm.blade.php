@@ -16,7 +16,6 @@
 <script src="js/Vegur_300.font.js" type="text/javascript"></script>
 <script src="js/Vegur_500.font.js" type="text/javascript"></script>
 <script src="js/FF-cash.js" type="text/javascript"></script>
-@yield('headerscripts')
 <!--[if lt IE 9]>
 <script type="text/javascript" src="js/html5.js"></script>
 <link rel="stylesheet" href="css/ie.css" type="text/css" media="screen">
@@ -69,7 +68,6 @@
           <article class="grid_4">
             <div class="indent-left">
               <div class="box indent-bot">
-                <div class="padding">
                   <div class="wrapper">
                     @yield('sidebar')
               </div>
@@ -89,7 +87,6 @@
   </div>
 </div>
 <script type="text/javascript">Cufon.now();</script>
-@yield('scripts')
 </body>
 </html>
 

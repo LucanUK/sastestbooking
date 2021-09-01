@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController;
+use App\Http\Controllers\VehicleController;
+use App\Http\Controllers\BookingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +21,8 @@ Route::get('/', function () {
 });
 Route::get('dashboard', [CustomAuthController::class, 'dashboard']); 
 Route::get('booking', [CustomAuthController::class, 'booking']); 
+Route::get('bookingconfirm', [BookingController::class, 'bookingconfirm'])->name('bookingconfirm');
+Route::post('vehicle', [VehicleController::class, 'checkAPI'])->name('vehicle.apicheck'); 
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
 Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom'); 
 Route::get('registration', [CustomAuthController::class, 'registration'])->name('register-user');
