@@ -50,6 +50,36 @@ Booking
        });
     });
     </script>
+    <script>
+        $('document').ready(function () {
+        $("#date").change(function () {
+        var data = $(this).val();
+        if (data == "") {
+        $('#vehiclestuff').hide();
+        } else {
+        $('#vehiclestuff').show();
+        }
+        });
+        });
+        </script>
+    <script>
+        function showrest(val) {
+        if (val == "") {
+        $('#vehiclestuff').hide();
+        } else {
+        $('#vehiclestuff').show();
+        }
+        }
+        </script>
+        <script>
+            function enablebutton(val) {
+            if (val == "") {
+            $('#bookbutton').prop('disabled', true);
+            } else {
+            $('#bookbutton').prop('disabled', false);
+            }
+            }
+            </script>
 @endsection
 
 @section('content')
@@ -67,11 +97,12 @@ Booking
                         
                         <div class="form-group">
                         <label>Date:</label>
-                           <input type="text"  name="date" id="date" class="datepicker form-control" autocomplete="on" autoclose="true">
+                           <input type="text" name="date" id="date" class="datepicker form-control" autocomplete="on" autoclose="true" onchange="showrest(this.value)"> 
                         
                         <br>
+                        <div id="vehiclestuff" hidden>
                             Vehicle Registration 
-                            <input type="text" placeholder="AA59MOT" id="registrationNumber" class="form-control" name="registrationNumber" required>
+                            <input type="text" placeholder="AA59MOT" id="registrationNumber" class="form-control" name="registrationNumber" required onchange="enablebutton(this.value)">
                             @if ($errors->has('registrationNumber'))
                             <span class="text-danger">{{ $errors->first('registrationNumber') }}</span>
                             @endif
@@ -100,11 +131,11 @@ Booking
                             <span class="text-danger">{{ $errors->first('Email') }}</span>
                             @endif
                             <br>
-
+                        </div>
 
                         </div>
                         <div class="d-grid mx-auto">
-                            <button type="submit" class="button">Book</button>
+                            <button type="submit" id="bookbutton" class="button" disabled>Book</button>
                         </div>
                     </form>
 @endsection
