@@ -50,18 +50,7 @@ Booking
        });
     });
     </script>
-    <script>
-        $('document').ready(function () {
-        $("#date").change(function () {
-        var data = $(this).val();
-        if (data == "") {
-        $('#vehiclestuff').hide();
-        } else {
-        $('#vehiclestuff').show();
-        }
-        });
-        });
-        </script>
+  
     <script>
         function showrest(val) {
         if (val == "") {
@@ -71,6 +60,16 @@ Booking
         }
         }
         </script>
+        <script>
+            function showtime(val) {
+            if (val == "") {
+            $('#timeslot').hide();
+            } else {
+                {{ route('vehicle.timeslot') }}
+            $('#timeslot').show();
+            }
+            }
+            </script>
         <script>
             function enablebutton(val) {
             if (val == "") {
@@ -97,9 +96,24 @@ Booking
                         
                         <div class="form-group">
                         <label>Date:</label>
-                           <input type="text" name="date" id="date" class="datepicker form-control" autocomplete="on" autoclose="true" onchange="showrest(this.value)"> 
+                           <input type="text" name="date" id="date" class="datepicker form-control" autocomplete="on" autoclose="true" onchange="showtime(this.value)"> 
                         
                         <br>
+                        
+                        <div id="timeslot" hidden>
+                            <div class="form-group">
+                                <label>Timeslot:</label>
+                                <select class="form-control" name="time" id="time" onchange="showrest(this.value)">
+                                    <option>Select Timeslot</option>
+                                    @foreach ($times as $key => $value)
+                                        <option value="{{ $value->start }}"> 
+                                            {{ $value->start }} 
+                                        </option>
+                                    @endforeach    
+                                </select>
+                            </div>
+                            
+                        </div>
                         <div id="vehiclestuff" hidden>
                             Vehicle Registration 
                             <input type="text" placeholder="AA59MOT" id="registrationNumber" class="form-control" name="registrationNumber" required onchange="enablebutton(this.value)">

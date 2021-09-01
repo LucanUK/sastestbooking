@@ -19,6 +19,9 @@ Booking Confirm
                             <label for="registrationNumber">Booking Date </label>
                             <input type="text" placeholder="{{ $userdata['bookingdate'] }}" id="bookingdate" name="bookingdate" class="form-control"  disabled
                                 autofocus><br>
+                            <label for="registrationNumber">Timeslot </label>
+                                <input type="text" placeholder="{{ $userdata['timeslot'] }}" id="timeslot" name="timeslot" class="form-control"  disabled
+                                    autofocus><br>
                             <label for="make">Name </label>
                             <input type="text" placeholder="{{ $userdata['FirstName'] }} {{ $userdata['LastName'] }}" id="Name" name="Name" class="form-control"  disabled
                                     autofocus><br>

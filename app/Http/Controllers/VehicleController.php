@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\VehicleLookup;
+use App\Models\Timeslots;
 use Hash;
 use Illuminate\Contracts\Session\Session as SessionSession;
 use Session;
@@ -11,6 +12,7 @@ use Session;
 class VehicleController extends Controller
 {
     //
+
     public function checkAPI(Request $request)
     {
         $request->validate([
@@ -18,7 +20,7 @@ class VehicleController extends Controller
         ]);
 
         $vehiclereg = $request->get('registrationNumber');
-        $userdata = array('bookingdate' => $request->get('date'),'FirstName' => $request->get('FirstName'), 'LastName' => $request->get('LastName'), 'PhoneNumber' => $request->get('PhoneNumber'),'Email' => $request->get('Email'));
+        $userdata = array('bookingdate' => $request->get('date'),'timeslot' => $request->get('time'),'FirstName' => $request->get('FirstName'), 'LastName' => $request->get('LastName'), 'PhoneNumber' => $request->get('PhoneNumber'),'Email' => $request->get('Email'));
         Session(['userdata' => $userdata]);
         
          $curl = curl_init();

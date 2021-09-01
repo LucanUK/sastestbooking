@@ -24,7 +24,7 @@ class BookingController extends Controller
     {
         $vehicledata = Session('vehicledata');
         $userdata = Session('userdata');
-        $bookingdata = array("Date" => $userdata['bookingdate'],"Time" => '0900', "FirstName" => $userdata['FirstName'],"LastName" => $userdata['LastName'],"PhoneNumber" => $userdata['PhoneNumber'],"Email" => $userdata['Email'],"registrationNumber" => $vehicledata->registrationNumber );
+        $bookingdata = array("Date" => $userdata['bookingdate'],"Time" => $userdata['timeslot'], "FirstName" => $userdata['FirstName'],"LastName" => $userdata['LastName'],"PhoneNumber" => $userdata['PhoneNumber'],"Email" => $userdata['Email'],"registrationNumber" => $vehicledata->registrationNumber );
         $booking = New Bookings;
         $booking->fill($bookingdata)->save();
         return view('bookingdone')->with('vehicledata', $vehicledata)->with('userdata', $userdata);

@@ -24,6 +24,7 @@ Route::get('booking', [CustomAuthController::class, 'booking'])->name('booking')
 Route::get('bookingconfirm', [BookingController::class, 'bookingconfirm'])->name('bookingconfirm');
 Route::post('bookingdone', [BookingController::class, 'bookingdone'])->name('bookingdone');
 Route::post('vehicle', [VehicleController::class, 'checkAPI'])->name('vehicle.apicheck'); 
+Route::post('timeslots', [VehicleController::class, 'dropDownShow'])->name('vehicle.timeslot'); 
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
 Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom'); 
 Route::get('registration', [CustomAuthController::class, 'registration'])->name('register-user');

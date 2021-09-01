@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Hash;
 use Session;
 use App\Models\User;
+use App\Models\Timeslots;
 use Illuminate\Support\Facades\Auth;
 
 class CustomAuthController extends Controller
@@ -76,7 +77,10 @@ class CustomAuthController extends Controller
     }
     public function booking()
     {
-            return view('booking');
+        $times = Timeslots::all();
+
+        return view('booking')->with('times', $times);
+        
     }
 
     public function signOut() {
