@@ -51,6 +51,7 @@ class BookingController extends Controller
         $mailuser = $userdata;
         $maildata = array('header' => $mailheader, 'user' => json_encode($userdata,true), 'vehicle' => json_encode($vehicledata,true), 'name' => $userdata['FirstName']);
         $mailto = "booking@lucanops.net";
+        #$mailto = "service@sastestandrepair.co.uk";
         $mailsubject = "MOT Booking - " . $userdata['bookingdate'] . " @ " . $userdata['timeslot'];
         #dd(config('mail'));
         #dd($maildata);
@@ -72,7 +73,7 @@ class BookingController extends Controller
             
             $mailheader = "You have registered for SAS Membership";
             $mailuser = $userdata;
-            $maildata = array('header' => $mailheader, 'user' => json_encode($userdata,true), 'name' => $userdata['FirstName'], 'password' => $password);
+            $maildata = array('header' => $mailheader, 'user' => json_encode($userdata,true), 'name' => $userdata['FirstName'], 'email' => $userdata['Email'], 'password' => $password);
             $mailto = $userdata['Email'];
             $mailsubject = "SAS Test & Repair - Booking Membership";
             #dd(config('mail'));
