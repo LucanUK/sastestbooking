@@ -17,25 +17,25 @@ Booking Completed
                         <div class="form-group mb-3">
                             <h6>Booking Info</h6>
                             <label for="registrationNumber">Booking Date </label>
-                            <input type="text" placeholder="{{ $userdata['bookingdate'] }}" id="bookingdate" name="bookingdate" class="form-control"  disabled
+                            <input type="text" placeholder="{{ $userdata['bookingdate'] }}" id="bookingdate" name="bookingdate" class="form-control"  readonly
                                 autofocus><br>
                                 <label for="registrationNumber">Booking Timeslot </label>
-                                <input type="text" placeholder="{{ $userdata['timeslot'] }}" id="timeslot" name="timeslot" class="form-control"  disabled
+                                <input type="text" placeholder="{{ $userdata['timeslot'] }}" id="timeslot" name="timeslot" class="form-control"  readonly
                                 autofocus><br>
                             <label for="make">Name </label>
-                            <input type="text" placeholder="{{ $userdata['FirstName'] }} {{ $userdata['LastName'] }}" id="Name" name="Name" class="form-control"  disabled
+                            <input type="text" placeholder="{{ $userdata['FirstName'] }} {{ $userdata['LastName'] }}" id="Name" name="Name" class="form-control"  readonly
                                     autofocus><br>
                                     <label for="registrationNumber">Registration </label>
-                                    <input type="text" placeholder="{{ $vehicledata->registrationNumber }}" id="registrationNumber" name="registrationNumber" class="form-control"  disabled
+                                    <input type="text" placeholder="{{ $vehicledata->registrationNumber }}" id="registrationNumber" name="registrationNumber" class="form-control"  readonly
                                         autofocus><br>
                                     <label for="make">Make </label>
-                                    <input type="text" placeholder="{{ $vehicledata->make }}" id="make" name="make" class="form-control"  disabled
+                                    <input type="text" placeholder="{{ $vehicledata->make }}" id="make" name="make" class="form-control"  readonly
                                             autofocus><br>
                                     <label for="make">Colour </label>
-                                    <input type="text" placeholder="{{ $vehicledata->colour }}" id="colour" name="colour" class="form-control"  disabled
+                                    <input type="text" placeholder="{{ $vehicledata->colour }}" id="colour" name="colour" class="form-control"  readonly
                                             autofocus><br>
                                     <label for="make">Year </label>
-                                    <input type="text" placeholder="{{ $vehicledata->yearOfManufacture }}" id="yearOfManufacture" name="yearOfManufacture" class="form-control"  disabled
+                                    <input type="text" placeholder="{{ $vehicledata->yearOfManufacture }}" id="yearOfManufacture" name="yearOfManufacture" class="form-control"  readonly
                                                     autofocus><br>
                             
                         </div>
