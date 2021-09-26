@@ -78,9 +78,9 @@ class BookingManagerScreen extends Screen
     public function commandBar(): array
     {
         return [
-            Button::make(__('New Booking'))
+           /*  Button::make(__('New Booking'))
                 ->icon('event')
-                ->method('BookingNotify'),
+                ->method('BookingNotify'), */
         ];
     }
 /**
@@ -93,7 +93,7 @@ class BookingManagerScreen extends Screen
     public function layout(): array
     {
         return [
-    Layout::rows([
+    /* Layout::rows([
 
         Group::make([
             DateTimer::make('appointment.pickday')
@@ -109,7 +109,7 @@ class BookingManagerScreen extends Screen
         ]),
 
 
-    ])->title('Check Bookings for Day'),
+    ])->title('Check Bookings for Day'), */
     BookingListLayout::class,
         ];
     }

@@ -77,7 +77,7 @@ class CustomAuthController extends Controller
     }
     public function booking()
     {
-        $times = Timeslots::all();
+        $times = Timeslots::orderBy('start', 'ASC')->get();
 
         return view('booking')->with('times', $times);
         
