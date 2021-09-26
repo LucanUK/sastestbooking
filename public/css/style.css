@@ -544,6 +544,11 @@ dl.main-address span {
 	margin-left:15px;
 	padding:5px 32px 6px;
 }
+
+input[type="text"][disabled] {​
+   color: #FFF;
+}​
+
 /****************************footer************************/
 footer {
 	width:100%;
