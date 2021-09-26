@@ -546,7 +546,7 @@ dl.main-address span {
 }
 
 input[type="text"][disabled] {​
-   color: #FFF;
+   background: #FFF;
 }​
 
 /****************************footer************************/
