@@ -62,6 +62,16 @@ Booking Confirm
                             <input type="text" placeholder="{{ $vehicledata->motExpiryDate }}" id="motExpiryDate" name="motExpiryDate" class="form-control"  disabled
                                                 autofocus><br>
                         </div>
+                        <div class="form-group mb-3">
+                            <br>
+                            <h6>Membership Info</h6>
+                            <label for="membership">Tick to register</label>
+                            <input type="checkbox"  id="membership" name="membership" class="form-control"  onclick="if(this.checked){ document.getElementById('password').disabled=false; }
+                                else{ document.getElementById('password').disabled=true; }"
+                                autofocus><br>
+                            <label for="password">Set Password</label>
+                            <input type="password"  id="password" name="password" class="form-control" disabled><br>
+                        </div>
                         <div class="d-grid mx-auto">
                             <button type="submit" class="button">Confirm</button>
                         </div>

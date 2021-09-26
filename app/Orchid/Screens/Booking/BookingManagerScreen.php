@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Orchid\Screens\Booking;
 
-//use App\Orchid\Layouts\Booking\BookingManagerLayout;
+use App\Orchid\Layouts\Booking\BookingListLayout;
 
 use App\Notifications\BookingAdded;
 use Orchid\Platform\Models\Role;
@@ -18,6 +18,8 @@ use Orchid\Screen\Fields\Group;
 use Orchid\Screen\Fields\Input;
 use Orchid\Support\Facades\Layout;
 use Orchid\Support\Facades\Alert;
+use Illuminate\Support\Facades\DB;
+use App\Models\Bookings;
 
 
 class BookingManagerScreen extends Screen
@@ -48,8 +50,14 @@ class BookingManagerScreen extends Screen
      */
     public function query(): array
     {
+        $bookings = New Bookings();
+        
+        #DB::table('bookings')
+
         return [
-            'roles' => Role::filters()->defaultSort('id', 'desc')->paginate(),
+            'bookings' => $bookings->orderby(DB::raw("STR_TO_DATE(Date,'%d/%m/%Y')") , 'asc')->orderby('Time', 'asc')->paginate(10)
+                ,
+
         ];
     }
     public function BookingNotify()
@@ -102,6 +110,7 @@ class BookingManagerScreen extends Screen
 
 
     ])->title('Check Bookings for Day'),
+    BookingListLayout::class,
         ];
     }
 }
