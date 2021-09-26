@@ -545,7 +545,7 @@ dl.main-address span {
 	padding:5px 32px 6px;
 }
 
-input[type="text"][disabled] {​
+input[type="text"]:disabled] {​
    background: #FFF;
 }​
 
