@@ -50,8 +50,8 @@ class BookingController extends Controller
         $mailheader = "An MOT Booking for  " . $vehicledata->registrationNumber . " has been received";
         $mailuser = $userdata;
         $maildata = array('header' => $mailheader, 'user' => json_encode($userdata,true), 'vehicle' => json_encode($vehicledata,true), 'name' => $userdata['FirstName']);
-        $mailto = "booking@lucanops.net";
-        #$mailto = "service@sastestandrepair.co.uk";
+        #$mailto = "booking@lucanops.net";
+        $mailto = "service@sastestandrepair.co.uk";
         $mailsubject = "MOT Booking - " . $userdata['bookingdate'] . " @ " . $userdata['timeslot'];
         #dd(config('mail'));
         #dd($maildata);
